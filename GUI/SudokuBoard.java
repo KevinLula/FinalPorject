@@ -3,32 +3,45 @@ import java.awt.*;
 
 public class SudokuBoard extends JFrame{
     private Container pane;
-    private JTextField t1, t2, t3, t4, t5, t6, t7, t8, t9;
+    private JPanel[][] Box = new JPanel[3][3];
+    private JTextField[][] Text = new JTextField[9][9];
 
-    public SudokuBoard(){
-        this.setTitle("Sudoku");
-	this.setSize(300,300);
-	this.setLocation(300,300);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-	pane = this.getContentPane();
-	pane.setLayout(new GridLayout());
-	pane.add(t1);
-	pane.add(t2);
-	pane.add(t3);
-	pane.add(t4);
-	pane.add(t5);
-	pane.add(t6);
-	pane.add(t7);
-	pane.add(t8);
-	pane.add(t9);
+	public void setTextFields(){
+	for(int x = 0; x < Text.length; x++){
+		for(int y = 0; y < Text[0].length; y++){
+			Text[x][y] = new JTextField();
+}
+}
 }
 
-    public static void main(String [] args){
+	public void addTextFields(){
+	for(int x = 0; x < Text.length; x++){
+		for(int y = 0; y < Text[0].length; y++){
+		pane.setLayout(new GridLayout(9, 9));
+		pane.add(Text[x][y]);
+}
+}
+}
+
+	public SudokuBoard(){
+	this.setTitle("Sudoku");
+	this.setSize(600,400);
+	this.setLocation(100,100);
+	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	this.setTextFields();
+	this.addTextFields();
+}
+
+
+	public static void main(String [] args){
 	SudokuBoard a = new SudokuBoard();
 	a.setVisible(true);
-    }
 }
+}
+
+
+
+
 
 
 
