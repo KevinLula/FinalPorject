@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.border.*;
 
 public class Box extends JPanel {
-    public int CellNumber = 9;
+    public int CellNumber = 8;
      
     public Cell[]cells = new Cell[CellNumber];
      
@@ -17,3 +17,5 @@ public class Box extends JPanel {
         }
     }
 }
+
+// Cell is only a JTextfield since it only extends it so far and nothing was made yet. Therefore JTextField could work instead of cell aswell.
