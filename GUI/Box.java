@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.border.*;
 
 public class Box extends JPanel {
-    public int CellNumber = 8;
+    public int CellNumber = 9;
      
     public Cell[]cells = new Cell[CellNumber];
      
