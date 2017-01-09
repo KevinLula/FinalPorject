@@ -6,13 +6,13 @@ import javax.swing.border.*;
 public class Box extends JPanel {
     public int CellNumber = 9;
      
-    public Cell[]cells = new Cell[CellNumber];
+    public JTextField[]cells = new JTextField[CellNumber];
      
     public Box(){
         this.setLayout(new GridLayout(3,3));
         this.setBorder(new LineBorder(Color.BLACK));
         for(int i = 0; i < CellNumber; i++){
-            cells[i] = new Cell();
+            cells[i] = new JTextField("1");
             this.add(cells[i]);
         }
     }
