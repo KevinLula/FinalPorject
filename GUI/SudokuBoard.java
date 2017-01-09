@@ -6,7 +6,7 @@ import javax.swing.border.*;
 public class SudokuBoard{
     public static void main(String[] args){
 	Board board = new Board();
-	board.setvisible(true);
+	board.setVisible(true);
     }
 }
     
