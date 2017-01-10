@@ -12,8 +12,8 @@ public class Sudoku{
 			   {9,6,1,5,8,4,7,3,2}
     };
 
-    public Sudoku(){
-	Random rand = new Random();
+    public Sudoku(int seed){
+	Random rand = new Random(seed);
         for (int i = 0; i < rand.nextInt(1000)*100;i++){
             mix();
         }
