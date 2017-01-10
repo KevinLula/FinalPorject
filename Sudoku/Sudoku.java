@@ -74,7 +74,7 @@ public class Sudoku{
 
     //main===============================                                                                                                                                            
     public static void main(String []args){
-        Sudoku s1 = new Sudoku();
+        Sudoku s1 = new Sudoku(3);
         //s1.newFill();                               
         System.out.println(s1);
 
