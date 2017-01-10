@@ -17,7 +17,7 @@ public class Sudoku{
         for (int i = 0; i < rand.nextInt(1000)*100;i++){
             mix();
         }
-	remove();
+	//remove();
     }
 
     //================================================================
@@ -34,15 +34,14 @@ public class Sudoku{
             ans[newRow] = temp;
 	}
         for (int i = 0; i<3;i++){
-            int col = rand.nextInt(3);
-            col += (3*i);
+            int col = rand.nextInt(3) + (3*i);
+	    int newCol = rand.nextInt(3) + (3*i);
             for (int r = 0; r<9;r++){
                 int temp = ans[r][col];
-                int newCol = rand.nextInt(3) + (3*i);
                 ans[r][col] = ans[r][newCol];
                 ans[r][newCol] = temp;
             }
-        }
+	}
     }
 
     //================================================================
@@ -139,8 +138,12 @@ public class Sudoku{
     //main===============================                                                                                                                                            
     public static void main(String []args){
         Sudoku s1 = new Sudoku();
-        //s1.newFill();                               
-        System.out.println(s1);
+        //s1.newFill();             
+	
+        //System.out.println(s1);
+	
+	System.out.println(s1); 
+
 
     }
 
