@@ -9,7 +9,7 @@ public class Board extends JFrame {
     public JPanel panel = new JPanel(new GridLayout(3,3));
      
     public Board(){
-	this.setLayout(new GridLayout(1,2));
+	this.setLayout(new GridLayout(1,1));
         this.setTitle("Sudoku");
         this.setSize(600,300);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,9 +35,9 @@ public class Board extends JFrame {
 	panel.add(boxes[8]);
 	
         this.add(panel);
-	this.add(new Buttons());
 
     }
 
 }
+
 
