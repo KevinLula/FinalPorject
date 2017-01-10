@@ -6,9 +6,9 @@ import javax.swing.border.*;
 public class Box extends JPanel {
     public int CellNumber = 9;
     public JTextField[]cells = new JTextField[CellNumber];
-    public Sudoku c = new Sudoku();
+    
      
-    public Box(int x, int y){
+    public Box(int x, int y, Sudoku c){
 	int a = x;
 	int b = y;
         this.setLayout(new GridLayout(3,3));
