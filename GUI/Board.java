@@ -14,15 +14,30 @@ public class Board extends JFrame {
         this.setSize(600,300);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
-        for(int i = 0; i < BoxNumber; i++){
-            boxes[i] = new Box();
-            panel.add(boxes[i]);
+	boxes[0] = new Box(0,0);
+	boxes[1] = new Box(3,0);
+	boxes[2] = new Box(6,0);
+        boxes[3] = new Box(0,3);
+	boxes[4] = new Box(3,3);
+	boxes[5] = new Box(6,3);   
+        boxes[6] = new Box(0,6);
+	boxes[7] = new Box(3,6);
+	boxes[8] = new Box(6,6);   
 
-        }
-
+	panel.add(boxes[0]);
+	panel.add(boxes[1]);
+	panel.add(boxes[2]);
+	panel.add(boxes[3]);
+	panel.add(boxes[4]);
+	panel.add(boxes[5]);
+	panel.add(boxes[6]);
+	panel.add(boxes[7]);
+	panel.add(boxes[8]);
+	
         this.add(panel);
 	this.add(new Buttons());
 
     }
 
 }
+
