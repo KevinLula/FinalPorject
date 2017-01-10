@@ -18,11 +18,11 @@ public class Box extends JPanel {
 		a = a - 3;
 		b = b + 1;
 	    }
-	    if(c.ans[a][b] == 0){
+	    if(c.get(a, b) == 0){
             cells[i] = new JTextField();
             this.add(cells[i]);
 	    a++;}
-	    else{cells[i] = new JTextField(c.ans[a][b] + "");
+	    else{cells[i] = new JTextField(c.get(a, b) + "");
 		cells[i].setEditable(false);
 		this.add(cells[i]);
 		a++;}
