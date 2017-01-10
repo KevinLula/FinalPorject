@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;//NEW STUFF!
 import java.awt.event.*;
 
-public class SettingsGUI3 extends JFrame{
+public class SettingsGUI3 extends JFrame implements ActionListener{
      private Container pane;
      private JLabel j;
      private JTextField t;
-    private JButton b, b2, b3, b4 ;
+     private JButton b, b2, b3, b4 ;
 
    public SettingsGUI3() {
     this.setTitle("Game Settings");
@@ -16,20 +16,15 @@ public class SettingsGUI3 extends JFrame{
 
     pane = this.getContentPane();
     pane.setLayout(new FlowLayout());
-    JButton b = new JButton("Easy");
-    JButton b2 = new JButton("Medium");
-    JButton b3 = new JButton("Hard");
-    JButton b4 = new JButton("Create");
-    b4.setPreferredSize(new Dimension(300,30));
-    t = new JTextField(10);
-    j = new JLabel("Board Number");
-    pane.add(j);
-    pane.add(t);
-    pane.add(b4);
+    JButton b = new JButton("Play");
+    b.addActionListener(this);
     pane.add(b);
-    pane.add(b2);
-    pane.add(b3);
    }
+    
+     public void actionPerformed(ActionEvent e){
+	Board a = new Board();
+	a.setVisible(true);
+     }
 
     public static void main(String [] args){
 	SettingsGUI3 a = new SettingsGUI3();
