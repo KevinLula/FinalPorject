@@ -17,7 +17,7 @@ public class Sudoku{
         for (int i = 0; i < rand.nextInt(1000)*100;i++){
             mix();
         }
-	//remove();
+	remove();
     }
 
     //================================================================
