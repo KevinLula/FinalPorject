@@ -12,7 +12,7 @@ public class Box extends JPanel {
         this.setLayout(new GridLayout(3,3));
         this.setBorder(new LineBorder(Color.BLACK));
         for(int i = 0; i < CellNumber; i++){
-            cells[i] = new JTextField("1");
+            cells[i] = new JTextField();
             this.add(cells[i]);
         }
     }
