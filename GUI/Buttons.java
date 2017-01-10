@@ -3,13 +3,15 @@ import java.awt.*;//NEW STUFF!
 import java.awt.event.*;
 import javax.swing.border.*;
 
-public class Buttons extends JPanel {
+public class Buttons extends JPanel implements ActionListener{
+    private JButton button;
     public Buttons(){
-        this.setLayout(new GridLayout(4,1));
-        this.add(new JButton("Reset"));
-        this.add(new JButton("Check"));
-        this.add(new JButton("New Puzzle"));
-	this.add(new JButton("Give Up"));
-         
+        this.setLayout(new GridLayout(2,1));
+        JButton button = new JButton("Check");
+	button.addActionListener(this);
+	this.add(button);
     }
+
+    public void actionPerformed(ActionEvent e){
+	for
 }
