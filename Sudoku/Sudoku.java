@@ -12,8 +12,8 @@ public class Sudoku{
 			   {9,6,1,5,8,4,7,3,2}
     };
 
-    public Sudoku(int seed){
-	Random rand = new Random(seed);
+    public Sudoku(){
+	Random rand = new Random();
         for (int i = 0; i < rand.nextInt(1000)*100;i++){
             mix();
         }
@@ -74,7 +74,7 @@ public class Sudoku{
 
     //main===============================                                                                                                                                            
     public static void main(String []args){
-        Sudoku s1 = new Sudoku(3);
+        Sudoku s1 = new Sudoku();
         //s1.newFill();                               
         System.out.println(s1);
 
