@@ -66,6 +66,10 @@ public class Sudoku{
 	}
 	return answer;
     }
+   
+	public int get(int row,int col){
+		return ans[row][col];
+	}
 
 
     //main===============================                                                                                                                                            
