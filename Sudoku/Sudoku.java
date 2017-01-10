@@ -71,6 +71,70 @@ public class Sudoku{
 		return ans[row][col];
 	}
 
+ 
+//===========================================
+    public boolean checkColRow(int row, int col){
+	for (int c = 0;c < 9; c ++){
+	    if (ans[row][c] == ans[row][col]){
+		return false;
+	    }
+	}
+	for (int r = 0;r < 9;r++){
+	    if (ans[r][col] == ans[row][col]){
+		return false;
+	    }
+	}
+	return true;
+    }
+		    
+		    
+    //===========================================
+    
+    //UNNECESSARY============================================================================
+    public boolean whichBoxCheck(int row, int col){
+	if (row < 3 && col < 3){
+	    return boxCheck(row,col,0,3,0,3);
+	}
+	else if (row < 3 && col < 6){
+	    return boxCheck(row,col,0,3,3,6);
+	}
+	else if (row < 3 && col < 9){
+	    return boxCheck(row,col,0,3,6,9);
+	}
+	else if (row < 6 && col < 3){
+	    return boxCheck(row,col,3,6,0,3);
+	}
+	else if (row < 6 && col < 6){
+	    return boxCheck(row,col,3,6,3,6);
+	}
+	else if (row < 6 && col < 9){
+	    return boxCheck(row,col,3,6,6,9);
+	}
+	else if (row < 9 && col < 3){
+	    return boxCheck(row,col,6,9,0,3);
+	}
+	else if (row < 9 && col < 6){
+	    return boxCheck(row,col,6,9,3,6);
+        }
+	else {
+	    return boxCheck(row,col,6,9,6,9);
+        }
+    }
+
+    //UNNECESSARY===========================================================================
+    public boolean boxCheck(int r, int c,int rmin, int rmax, int cmin, int cmax){
+	for (int row = rmin; row < rmax; row ++){
+	    for (int col = cmin;col < cmax; col ++){
+		if (row != r && col != c){
+		    if (ans[row][col]==(ans[r][c])){
+			return false;
+		    }
+		}
+	    }
+	}
+	return true;
+    }
+
 
     //main===============================                                                                                                                                            
     public static void main(String []args){
