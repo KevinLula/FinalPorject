@@ -24,15 +24,12 @@ public class Sudoku{
     }
 
     public void ansToPuzz(){
-        for (int r = 0; r < 9; r++){
-            for (int c = 0;c < 9; c++){
-                puzzle[r][c] = ans[r][c];
-            }
-        }
+	for (int r = 0; r < 9; r++){
+	    for (int c = 0;c < 9; c++){
+		puzzle[r][c] = ans[r][c];
+	    }
+	}
     }
-
-    //getter========================================================
-
 
     //================================================================
 
@@ -80,13 +77,9 @@ public class Sudoku{
 	return answer;
     }
    
-    public int get(int row,int col){
-	return ans[row][col];
-    }
-
-    public int getPuzzle(int row, int col){
-	return puzzle[row][col];
-    }
+	public int get(int row,int col){
+		return ans[row][col];
+	}
 
  
 //===========================================
