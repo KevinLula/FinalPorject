@@ -5,7 +5,10 @@ import javax.swing.border.*;
 
 public class Buttons extends JPanel implements ActionListener{
     private JButton button;
+    private Board2 d;
+    private Board a;
     public Buttons(){
+	
         this.setLayout(new GridLayout(2,1));
         JButton button = new JButton("Check");
 	button.addActionListener(this);
@@ -13,5 +16,7 @@ public class Buttons extends JPanel implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
-	for
+	SettingsGUI3.getSolvedBoard().setVisible(true);
+	SettingsGUI3.getUnSolvedBoard().setVisible(false);
+}
 }

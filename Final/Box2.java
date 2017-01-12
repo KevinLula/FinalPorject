@@ -3,12 +3,12 @@ import java.awt.*;//NEW STUFF!
 import java.awt.event.*;
 import javax.swing.border.*;
 
-public class Box extends JPanel {
+public class Box2 extends JPanel {
     public int CellNumber = 9;
     public JTextField[]cells = new JTextField[CellNumber];
     
      
-    public Box(int x, int y, Sudoku c){
+    public Box2(int x, int y, Sudoku c){
 	int a = x;
 	int b = y;
         this.setLayout(new GridLayout(3,3));
@@ -18,11 +18,11 @@ public class Box extends JPanel {
 		a = a - 3;
 		b = b + 1;
 	    }
-	    if(c.getPuzzle(a, b) == 0){
+	    if(c.get(a, b) == 0){
             cells[i] = new JTextField();
             this.add(cells[i]);
 	    a++;}
-	    else{cells[i] = new JTextField(c.getPuzzle(a, b) + "");
+	    else{cells[i] = new JTextField(c.get(a, b) + "");
 		cells[i].setEditable(false);
 		this.add(cells[i]);
 		a++;}

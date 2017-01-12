@@ -3,26 +3,26 @@ import java.awt.*;//NEW STUFF!
 import java.awt.event.*;
 import javax.swing.border.*;
 
-public class Board extends JFrame {
+public class Board2 extends JFrame {
     public int BoxNumber = 9;
-    public Box[]boxes = new Box[BoxNumber];
+    public Box2[]boxes = new Box2[BoxNumber];
     public JPanel panel = new JPanel(new GridLayout(3,3));
      
-    public Board(Sudoku c){
+    public Board2(Sudoku c){
 	this.setLayout(new GridLayout(1,1));
         this.setTitle("Sudoku");
         this.setSize(600,300);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	
-	boxes[0] = new Box(0,0,c);
-	boxes[1] = new Box(3,0,c);
-	boxes[2] = new Box(6,0,c);
-        boxes[3] = new Box(0,3,c);
-	boxes[4] = new Box(3,3,c);
-	boxes[5] = new Box(6,3,c);   
-        boxes[6] = new Box(0,6,c);
-	boxes[7] = new Box(3,6,c);
-	boxes[8] = new Box(6,6,c);   
+	boxes[0] = new Box2(0,0,c);
+	boxes[1] = new Box2(3,0,c);
+	boxes[2] = new Box2(6,0,c);
+        boxes[3] = new Box2(0,3,c);
+	boxes[4] = new Box2(3,3,c);
+	boxes[5] = new Box2(6,3,c);   
+        boxes[6] = new Box2(0,6,c);
+	boxes[7] = new Box2(3,6,c);
+	boxes[8] = new Box2(6,6,c);   
 
 	panel.add(boxes[0]);
 	panel.add(boxes[1]);

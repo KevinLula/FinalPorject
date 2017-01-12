@@ -6,7 +6,10 @@ public class SettingsGUI3 extends JFrame implements ActionListener{
      private Container pane;
      private JLabel j;
      private JTextField t;
-     private JButton b, b2, b3, b4 ;
+     private JButton b, b2, b3, b4;
+     public Sudoku c = new Sudoku();
+     public Board a = new Board(c);
+     public Board2 d = new Board2(c);
 
    public SettingsGUI3() {
     this.setTitle("Game Settings");
@@ -20,10 +23,18 @@ public class SettingsGUI3 extends JFrame implements ActionListener{
     b.addActionListener(this);
     pane.add(b);
    }
+
+     public Board2 getSolvedBoard(){
+	return d;
+}
+
+     public Board getUnSolvedBoard(){
+	return a;
+}
     
      public void actionPerformed(ActionEvent e){
-	Board a = new Board();
 	a.setVisible(true);
+	d.setVisible(false);
      }
 
     public static void main(String [] args){
