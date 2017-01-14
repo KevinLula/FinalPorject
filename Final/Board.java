@@ -3,12 +3,15 @@ import java.awt.*;//NEW STUFF!
 import java.awt.event.*;
 import javax.swing.border.*;
 
-public class Board extends JFrame {
+public class Board extends JFrame implements ActionListener{
     public int BoxNumber = 9;
     public Box[]boxes = new Box[BoxNumber];
     public JPanel panel = new JPanel(new GridLayout(3,3));
+    public JPanel Buttons = new JPanel (new GridLayout(2,1));
+    public JButton b;
+    public Sudoku c = new Sudoku();
      
-    public Board(Sudoku c){
+    public Board(){
 	this.setLayout(new GridLayout(1,1));
         this.setTitle("Sudoku");
         this.setSize(600,300);
@@ -33,9 +36,20 @@ public class Board extends JFrame {
 	panel.add(boxes[6]);
 	panel.add(boxes[7]);
 	panel.add(boxes[8]);
+
+        JButton b = new JButton("Solve");
+	b.addActionListener(this);
+	Buttons.add(b);
 	
         this.add(panel);
+	this.add(Buttons);
 
+    }
+
+    public void actionPerformed(ActionEvent e){
+	Board2 d = new Board2(c);
+	d.setVisible(true);
+	this.setVisible(false);
     }
 
 }
