@@ -15,13 +15,33 @@ public class Sudoku{
     private int [][]puzzle = new int[9][9];
 
     public Sudoku(){
-	Random rand = new Random();
+        Random rand = new Random();
+        for (int i = 0; i < rand.nextInt(1000)*100;i++){
+            mix();
+        }
+        ansToPuzz();
+        remove();
+    }
+
+
+    public Sudoku(int seed){
+	Random rand = new Random(seed);
         for (int i = 0; i < rand.nextInt(1000)*100;i++){
             mix();
         }
 	ansToPuzz();
 	remove();
     }
+
+    public Sudoku(int seed,int diff){
+        Random rand = new Random(seed);
+        for (int i = 0; i < rand.nextInt(1000)*100;i++){
+            mix();
+        }
+        ansToPuzz();
+        remove(diff);
+    }
+
 
     public void ansToPuzz(){
         for (int r = 0; r < 9; r++){
@@ -61,8 +81,16 @@ public class Sudoku{
     //================================================================
 
     public void remove(){
+        Random rand =  new Random();
+        for (int i = 0; i < (27);i++){
+            puzzle[rand.nextInt(9)][rand.nextInt(9)] = 00;
+        }
+    }
+
+
+    public void remove(int difficulty){
 	Random rand =  new Random();
-	for (int i = 0; i < 27;i++){
+	for (int i = 0; i < (difficulty * 25);i++){
 	    puzzle[rand.nextInt(9)][rand.nextInt(9)] = 00;
 	}
     }
@@ -107,6 +135,8 @@ public class Sudoku{
 		    
     //===========================================
     
+    
+
     //UNNECESSARY============================================================================
     public boolean whichBoxCheck(int row, int col){
 	if (row < 3 && col < 3){
