@@ -120,13 +120,17 @@ public class Sudoku{
 //===========================================
     public boolean checkColRow(int row, int col){
 	for (int c = 0;c < 9; c ++){
-	    if (ans[row][c] == ans[row][col]){
-		return false;
+	    if (c != col){
+		if (ans[row][c] == ans[row][col]){
+		    return false;
+		}
 	    }
 	}
 	for (int r = 0;r < 9;r++){
-	    if (ans[r][col] == ans[row][col]){
-		return false;
+	    if (r != row){
+		if (ans[r][col] == ans[row][col]){
+		    return false;
+		}
 	    }
 	}
 	return true;
@@ -190,7 +194,7 @@ public class Sudoku{
 	
         //System.out.println(s1);
 	
-	System.out.println(s1); 
+	System.out.println(s1.checkColRow(6,6)); 
 
 
     }
