@@ -16,9 +16,20 @@ public class SettingsGUI3 extends JFrame implements ActionListener{
 
     pane = this.getContentPane();
     pane.setLayout(new FlowLayout());
-    JButton b = new JButton("Play");
+    JButton b = new JButton("Easy");
     b.addActionListener(this);
+    JButton b2 = new JButton("Medium");
+    JButton b3 = new JButton("Hard");
+    JButton b4 = new JButton("Create");
+    JTextField t = new JTextField(10);
+    JLabel j = new JLabel("Seed:");
+
+    pane.add(j);
+    pane.add(t);
+    pane.add(b4);
     pane.add(b);
+    pane.add(b2);
+    pane.add(b3);
    }
     
      public void actionPerformed(ActionEvent e){
