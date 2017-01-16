@@ -10,17 +10,17 @@ import java.awt.event.*;
      public JPanel panel = new JPanel (new GridLayout(3,3));
      public JPanel Buttons = new JPanel (new GridLayout(3,2));
      public JPanel Timer = new JPanel (new FlowLayout());
-     public JLabel l, Seed1;
+     public JLabel l, Seed1, Difficulty1;
      public JButton b, b2;
      public Timer timer;
-     public JTextField timeF, Seed;
-     public Sudoku c = new Sudoku();
+     public Sudoku c;
+     public JTextField timeF, Seed, Difficulty;
      private static final long serialVersionUID = 1L;
       
      public Board(){
  	this.setLayout(new GridLayout(1,1));
-         this.setTitle("Sudoku");
-         this.setSize(800,300);
+        this.setTitle("Sudoku");
+        this.setSize(800,300);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
  	
  	boxes[0] = new Box(0,0,c);
@@ -49,7 +49,69 @@ import java.awt.event.*;
  	JButton b2 = new JButton("Check");
  	b2.addActionListener(this);
  	b2.setActionCommand("Check");
- 	JTextField Seed = new JTextField("11385");
+ 	JTextField Seed = new JTextField(c.getSeed() + "");
+ 	Seed.setEditable(false);
+ 	JLabel Seed1 = new JLabel("Seed:");
+	JTextField Difficulty = new JTextField(10);
+	Difficulty.setEditable(false);
+	JLabel Difficulty1 = new JLabel("Difficulty:");
+ 	Buttons.add(b);
+ 	Buttons.add(b2);
+ 	Buttons.add(Seed1);
+ 	Buttons.add(Seed);
+	Buttons.add(Difficulty1);
+	Buttons.add(Difficulty);
+ 
+ 	l = new JLabel("Time:");
+ 	timeF = new JTextField(10);
+ 	timeF.setEditable(false);
+ 	Timer.add(l);
+ 	Timer.add(timeF);
+ 	
+ 	timer = new Timer(1000, new Listener());
+ 	timer.start();
+ 	
+         this.add(panel);
+ 	this.add(Buttons);
+ 	this.add(Timer);
+ 	
+ 
+     }
+
+      public Board(int seed){
+        c = new Sudoku(seed);
+ 	this.setLayout(new GridLayout(1,1));
+        this.setTitle("Sudoku");
+        this.setSize(800,300);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+ 	
+ 	boxes[0] = new Box(0,0,c);
+ 	boxes[1] = new Box(3,0,c);
+ 	boxes[2] = new Box(6,0,c);
+        boxes[3] = new Box(0,3,c);
+ 	boxes[4] = new Box(3,3,c);
+ 	boxes[5] = new Box(6,3,c);   
+        boxes[6] = new Box(0,6,c);
+ 	boxes[7] = new Box(3,6,c);
+ 	boxes[8] = new Box(6,6,c);   
+ 
+ 	panel.add(boxes[0]);
+ 	panel.add(boxes[1]);
+ 	panel.add(boxes[2]);
+ 	panel.add(boxes[3]);
+ 	panel.add(boxes[4]);
+ 	panel.add(boxes[5]);
+ 	panel.add(boxes[6]);
+ 	panel.add(boxes[7]);
+ 	panel.add(boxes[8]);
+ 	
+        JButton b = new JButton("Solve");
+ 	b.addActionListener(this);
+ 	b.setActionCommand("Solve");
+ 	JButton b2 = new JButton("Check");
+ 	b2.addActionListener(this);
+ 	b2.setActionCommand("Check");
+ 	JTextField Seed = new JTextField(c.getSeed() + "");
  	Seed.setEditable(false);
  	JLabel Seed1 = new JLabel("Seed:");
  	Buttons.add(b);
@@ -72,6 +134,132 @@ import java.awt.event.*;
  	
  
      }
+
+        public Board(String str){
+	c = new Sudoku(str);
+ 	this.setLayout(new GridLayout(1,1));
+        this.setTitle("Sudoku");
+        this.setSize(800,300);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+ 	
+ 	boxes[0] = new Box(0,0,c);
+ 	boxes[1] = new Box(3,0,c);
+ 	boxes[2] = new Box(6,0,c);
+        boxes[3] = new Box(0,3,c);
+ 	boxes[4] = new Box(3,3,c);
+ 	boxes[5] = new Box(6,3,c);   
+        boxes[6] = new Box(0,6,c);
+ 	boxes[7] = new Box(3,6,c);
+ 	boxes[8] = new Box(6,6,c);   
+ 
+ 	panel.add(boxes[0]);
+ 	panel.add(boxes[1]);
+ 	panel.add(boxes[2]);
+ 	panel.add(boxes[3]);
+ 	panel.add(boxes[4]);
+ 	panel.add(boxes[5]);
+ 	panel.add(boxes[6]);
+ 	panel.add(boxes[7]);
+ 	panel.add(boxes[8]);
+ 	
+        JButton b = new JButton("Solve");
+ 	b.addActionListener(this);
+ 	b.setActionCommand("Solve");
+ 	JButton b2 = new JButton("Check");
+ 	b2.addActionListener(this);
+ 	b2.setActionCommand("Check");
+ 	JTextField Seed = new JTextField(c.getSeed() + "");
+ 	Seed.setEditable(false);
+ 	JLabel Seed1 = new JLabel("Seed:");
+	JTextField Difficulty = new JTextField(str);
+	Difficulty.setEditable(false);
+	JLabel Difficulty1 = new JLabel("Difficulty:");
+ 	Buttons.add(b);
+ 	Buttons.add(b2);
+ 	Buttons.add(Seed1);
+ 	Buttons.add(Seed);
+	Buttons.add(Difficulty1);
+	Buttons.add(Difficulty);
+ 
+ 	l = new JLabel("Time:");
+ 	timeF = new JTextField(10);
+ 	timeF.setEditable(false);
+ 	Timer.add(l);
+ 	Timer.add(timeF);
+ 	
+ 	timer = new Timer(1000, new Listener());
+ 	timer.start();
+ 	
+         this.add(panel);
+ 	this.add(Buttons);
+ 	this.add(Timer);
+ 	
+ 
+     }
+
+        public Board(int seed, String str){
+	c = new Sudoku(seed, str);
+ 	this.setLayout(new GridLayout(1,1));
+        this.setTitle("Sudoku");
+        this.setSize(800,300);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+ 	
+ 	boxes[0] = new Box(0,0,c);
+ 	boxes[1] = new Box(3,0,c);
+ 	boxes[2] = new Box(6,0,c);
+        boxes[3] = new Box(0,3,c);
+ 	boxes[4] = new Box(3,3,c);
+ 	boxes[5] = new Box(6,3,c);   
+        boxes[6] = new Box(0,6,c);
+ 	boxes[7] = new Box(3,6,c);
+ 	boxes[8] = new Box(6,6,c);   
+ 
+ 	panel.add(boxes[0]);
+ 	panel.add(boxes[1]);
+ 	panel.add(boxes[2]);
+ 	panel.add(boxes[3]);
+ 	panel.add(boxes[4]);
+ 	panel.add(boxes[5]);
+ 	panel.add(boxes[6]);
+ 	panel.add(boxes[7]);
+ 	panel.add(boxes[8]);
+ 	
+        JButton b = new JButton("Solve");
+ 	b.addActionListener(this);
+ 	b.setActionCommand("Solve");
+ 	JButton b2 = new JButton("Check");
+ 	b2.addActionListener(this);
+ 	b2.setActionCommand("Check");
+ 	JTextField Seed = new JTextField(c.getSeed() + "");
+ 	Seed.setEditable(false);
+ 	JLabel Seed1 = new JLabel("Seed:");
+	JTextField Difficulty = new JTextField(str);
+	Difficulty.setEditable(false);
+	JLabel Difficulty1 = new JLabel("Difficulty:");
+ 	Buttons.add(b);
+ 	Buttons.add(b2);
+ 	Buttons.add(Seed1);
+ 	Buttons.add(Seed);
+	Buttons.add(Difficulty1);
+	Buttons.add(Difficulty);
+ 
+ 	l = new JLabel("Time:");
+ 	timeF = new JTextField(10);
+ 	timeF.setEditable(false);
+ 	Timer.add(l);
+ 	Timer.add(timeF);
+ 	
+ 	timer = new Timer(1000, new Listener());
+ 	timer.start();
+ 	
+         this.add(panel);
+ 	this.add(Buttons);
+ 	this.add(Timer);
+ 	
+ 
+     }
+
+     
  
      public void actionPerformed(ActionEvent e){
  	String event = e.getActionCommand();
