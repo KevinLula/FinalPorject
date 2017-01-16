@@ -1,5 +1,9 @@
 import java.util.Random;
 public class Sudoku{
+
+    private int seed;
+    
+    private Random randgen;
     
     private int [][]ans = {{3,2,9,6,5,7,8,4,1},
 			   {7,4,5,8,3,1,2,9,6},		
@@ -15,8 +19,9 @@ public class Sudoku{
     private int [][]puzzle = new int[9][9];
 
     public Sudoku(){
-        Random rand = new Random();
-        for (int i = 0; i < rand.nextInt(1000)*100;i++){
+	seed = (int)(Math.random() * 10000);
+	randgen = new Random(seed);
+        for (int i = 0; i < randgen.nextInt(1000)*100;i++){
             mix();
         }
         ansToPuzz();
@@ -24,23 +29,36 @@ public class Sudoku{
     }
 
 
-    public Sudoku(int seed){
-	Random rand = new Random(seed);
-        for (int i = 0; i < rand.nextInt(1000)*100;i++){
-            mix();
+    public Sudoku(int Seed){
+	seed = Seed;
+        randgen = new Random(seed);
+        for (int i = 0; i < randgen.nextInt(1000)*100;i++){
+            mix(randgen);
         }
 	ansToPuzz();
-	remove();
+	remove(randgen);
     }
 
-    public Sudoku(int seed,int diff){
-        Random rand = new Random(seed);
-        for (int i = 0; i < rand.nextInt(1000)*100;i++){
-            mix();
+    public Sudoku(int Seed,String diff){
+        seed = Seed;
+	randgen = new Random(seed);
+        for (int i = 0; i < randgen.nextInt(1000)*100;i++){
+            mix(randgen);
         }
         ansToPuzz();
-        remove(diff);
+        remove(randgen, diff);
     }
+    
+        public Sudoku(String diff){
+	seed = (int)(Math.random() * 10000);
+        randgen = new Random(seed);
+        for (int i = 0; i < randgen.nextInt(1000)*100;i++){
+            mix(randgen);
+        }
+        ansToPuzz();
+	remove(randgen, diff);
+	}
+ 
 
 
     public void ansToPuzz(){
@@ -78,6 +96,26 @@ public class Sudoku{
 	}
     }
 
+        public void mix(Random randgen){	
+        for (int i = 0; i<3;i++){
+            int row = randgen.nextInt(3);
+            row += (3*i);
+            int[]temp = ans[row];
+            int newRow = randgen.nextInt(3) + (3*i);
+            ans[row] = ans[newRow];
+            ans[newRow] = temp;
+	}
+        for (int i = 0; i<3;i++){
+            int col = randgen.nextInt(3) + (3*i);
+	    int newCol = randgen.nextInt(3) + (3*i);
+            for (int r = 0; r<9;r++){
+                int temp = ans[r][col];
+                ans[r][col] = ans[r][newCol];
+                ans[r][newCol] = temp;
+            }
+	}
+    }
+
     //================================================================
 
     public void remove(){
@@ -88,12 +126,27 @@ public class Sudoku{
     }
 
 
-    public void remove(int difficulty){
-	Random rand =  new Random();
-	for (int i = 0; i < (difficulty * 25);i++){
-	    puzzle[rand.nextInt(9)][rand.nextInt(9)] = 00;
+    public void remove(Random randgen){
+	for (int i = 0; i < 25;i++){
+	    puzzle[randgen.nextInt(9)][randgen.nextInt(9)] = 00;
 	}
     }
+
+    public void remove(Random randgen, String diff){
+	if(diff.equals("Easy")){
+	for (int i = 0; i < 25;i++){
+	    puzzle[randgen.nextInt(9)][randgen.nextInt(9)] = 00;
+	}}
+	    if(diff.equals("Medium")){
+	    for (int i = 0; i < 45;i++){
+	    puzzle[randgen.nextInt(9)][randgen.nextInt(9)] = 00;
+	    }}
+	        if(diff.equals("Hard")){
+	        for (int i = 0; i < 65;i++){
+	        puzzle[randgen.nextInt(9)][randgen.nextInt(9)] = 00;
+	        }}		    
+	    
+    }    
 
     //toString======================================================
 
@@ -114,6 +167,10 @@ public class Sudoku{
 
     public int getPuzzle(int row, int col){
 	return puzzle[row][col];
+    }
+
+    public int getSeed(){
+	return seed;
     }
 
  
