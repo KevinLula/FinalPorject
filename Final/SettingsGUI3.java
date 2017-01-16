@@ -4,28 +4,40 @@ import java.awt.event.*;
 
 public class SettingsGUI3 extends JFrame implements ActionListener{
      private Container pane;
-     private JLabel j;
-     private JTextField t;
+    private JLabel j, j2;
+    private JTextField t, t2;
      private JButton b, b2, b3, b4;
 
    public SettingsGUI3() {
     this.setTitle("Game Settings");
     this.setSize(300,200);
-    this.setLocation(100,100);
+    this.setLocation(1000,500);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     pane = this.getContentPane();
     pane.setLayout(new FlowLayout());
     JButton b = new JButton("Easy");
     b.addActionListener(this);
+    b.setActionCommand("Easy");
     JButton b2 = new JButton("Medium");
+    b2.addActionListener(this);
+    b2.setActionCommand("Medium");    
     JButton b3 = new JButton("Hard");
+    b3.addActionListener(this);
+    b3.setActionCommand("Hard");    
     JButton b4 = new JButton("Create");
-    JTextField t = new JTextField(10);
-    JLabel j = new JLabel("Seed:");
+    b4.setBounds(10,10,10,10);
+    b4.addActionListener(this);
+    b4.setActionCommand("Create");
+    t = new JTextField(15);
+    t2 = new JTextField(15);
+    JLabel j2 = new JLabel("Difficulty:");
+    JLabel j = new JLabel("Seed:       ");
 
     pane.add(j);
     pane.add(t);
+    pane.add(j2);
+    pane.add(t2);
     pane.add(b4);
     pane.add(b);
     pane.add(b2);
@@ -33,9 +45,24 @@ public class SettingsGUI3 extends JFrame implements ActionListener{
    }
     
      public void actionPerformed(ActionEvent e){
-	 Board a = new Board();
+	 String event = e.getActionCommand();
+	 if(event.equals("Easy")){
+	 Board a = new Board("Easy");
 	 a.setVisible(true);
-	 this.setVisible(false);
+	 this.setVisible(false);}
+	 	 if(event.equals("Medium")){
+	         Board b = new Board("Medium");
+	         b.setVisible(true);
+		 this.setVisible(false);}
+	 	         if(event.equals("Hard")){
+	                 Board c = new Board("Hard");
+	                 c.setVisible(true);
+	                 this.setVisible(false);}
+	                            if(event.equals("Create")){
+					Board d = new Board(Integer.parseInt(t.getText()),t2.getText());
+	                            d.setVisible(true);
+	                            this.setVisible(false);
+	 }
      }
 
     public static void main(String [] args){
