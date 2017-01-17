@@ -4,9 +4,9 @@ import java.awt.event.*;
 import javax.swing.border.*;
 
 public class Board2 extends JFrame {
-    public int BoxNumber = 9;
-    public Box2[]boxes = new Box2[BoxNumber];
-    public JPanel panel = new JPanel(new GridLayout(3,3));
+    private int BoxNumber = 9;
+    private Box2[]boxes = new Box2[BoxNumber];
+    private JPanel panel = new JPanel(new GridLayout(3,3));
      
     public Board2(Sudoku c){
 	this.setLayout(new GridLayout(1,1));
