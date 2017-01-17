@@ -60,7 +60,7 @@ public class SettingsGUI3 extends JFrame implements ActionListener{
 	                            if(event.equals("Create")){
 					try{
 					    Integer.parseInt(t.getText());}
-					catch(NumberFormatException f){System.out.println("NumberFormatException: The text box Seed requires an integer.");}
+					catch(NumberFormatException f){System.out.println("NumberFormatException: The text box Board Number requires an integer.");}
 					if(t2.getText().equals("Easy") || t2.getText().equals("Medium") || t2.getText().equals("Hard")){
 					Board d = new Board(Integer.parseInt(t.getText()),t2.getText());
 	                            d.setVisible(true);
