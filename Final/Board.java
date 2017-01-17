@@ -165,13 +165,13 @@ import java.awt.event.*;
         JButton b = new JButton("Solve");
  	b.addActionListener(this);
  	b.setActionCommand("Solve");
- 	JButton b2 = new JButton("Check");
+ 	JButton b2 = new JButton("New Puzzle");
  	b2.addActionListener(this);
- 	b2.setActionCommand("Check");
+ 	b2.setActionCommand("New Puzzle");
  	JTextField Seed = new JTextField(c.getSeed() + "");
  	Seed.setEditable(false);
  	JLabel Seed1 = new JLabel("Seed:");
-	JTextField Difficulty = new JTextField(str);
+	Difficulty = new JTextField(str);
 	Difficulty.setEditable(false);
 	JLabel Difficulty1 = new JLabel("Difficulty:");
  	Buttons.add(b);
@@ -227,13 +227,13 @@ import java.awt.event.*;
         JButton b = new JButton("Solve");
  	b.addActionListener(this);
  	b.setActionCommand("Solve");
- 	JButton b2 = new JButton("Check");
+ 	JButton b2 = new JButton("New Puzzle");
  	b2.addActionListener(this);
- 	b2.setActionCommand("Check");
+ 	b2.setActionCommand("New Puzzle");
  	JTextField Seed = new JTextField(c.getSeed() + "");
  	Seed.setEditable(false);
  	JLabel Seed1 = new JLabel("Seed:");
-	JTextField Difficulty = new JTextField(str);
+	Difficulty = new JTextField(str);
 	Difficulty.setEditable(false);
 	JLabel Difficulty1 = new JLabel("Difficulty:");
  	Buttons.add(b);
@@ -260,98 +260,18 @@ import java.awt.event.*;
      }
 
      
- 
      public void actionPerformed(ActionEvent e){
  	String event = e.getActionCommand();
  	if(event.equals("Solve")){
  	    Board2 d = new Board2(c);
  	    d.setVisible(true);
  	    this.setVisible(false);}
-	/**	if(event.equals("Check")){
- 	    String [][] Sudoku1 = new String [9][9];
- 	    int [][] Sudoku2 = new int [9][9];
- 	    Sudoku[0][0] = boxes[].get(cells[]);
- 	    Sudoku[1][0] = boxes[].get(cells[]);	    
- 	    Sudoku[2][0] = boxes[].get(cells[]);		    
- 	    Sudoku[0][1] = boxes[].get(cells[]);
- 	    Sudoku[1][1] = boxes[].get(cells[]);
- 	    Sudoku[2][1] = boxes[].get(cells[]);
- 	    Sudoku[0][2] = boxes[].get(cells[]);
- 	    Sudoku[1][2] = boxes[].get(cells[]);
- 	    Sudoku[2][2] = boxes[].get(cells[]);
- 	    Sudoku[3][0] = boxes[].get(cells[]);
- 	    Sudoku[4][0] = boxes[].get(cells[]);	    
- 	    Sudoku[5][0] = boxes[].get(cells[]);		    
- 	    Sudoku[3][0] = boxes[].get(cells[]);
- 	    Sudoku[4][0] = boxes[].get(cells[]);
- 	    Sudoku[5][0] = boxes[].get(cells[]);
- 	    Sudoku[3][0] = boxes[].get(cells[]);
- 	    Sudoku[4][0] = boxes[].get(cells[]);
- 	    Sudoku[5][0] = boxes[].get(cells[]);
- 	    	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);	    
- 	    Sudoku[][] = boxes[].get(cells[]);		    
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);	    
- 	    Sudoku[][] = boxes[].get(cells[]);		    
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);	    
- 	    Sudoku[][] = boxes[].get(cells[]);		    
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);	    
- 	    Sudoku[][] = boxes[].get(cells[]);		    
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);	    
- 	    Sudoku[][] = boxes[].get(cells[]);		    
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);	    
- 	    Sudoku[][] = boxes[].get(cells[]);		    
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);	    
- 	    Sudoku[][] = boxes[].get(cells[]);		    
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
- 	    Sudoku[][] = boxes[].get(cells[]);
-	    } */
+	if(event.equals("New Puzzle")){
+	    Board f = new Board(Difficulty.getText());
+	    f.setVisible(true);
+	    this.setVisible(false);
+	}
+	    
      }
  
      class Listener implements ActionListener{
