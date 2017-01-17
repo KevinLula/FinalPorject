@@ -4,8 +4,8 @@ import java.awt.event.*;
 
 public class SettingsGUI3 extends JFrame implements ActionListener{
      private Container pane;
-    private JLabel j, j2;
-    private JTextField t, t2;
+     private JLabel j, j2;
+     private JTextField t, t2;
      private JButton b, b2, b3, b4;
 
    public SettingsGUI3() {
