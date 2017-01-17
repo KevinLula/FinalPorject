@@ -11,7 +11,7 @@ public class SettingsGUI3 extends JFrame implements ActionListener{
    public SettingsGUI3() {
     this.setTitle("Game Settings");
     this.setSize(300,200);
-    this.setLocation(1000,500);
+    this.setLocation(300,300);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     pane = this.getContentPane();
@@ -26,13 +26,12 @@ public class SettingsGUI3 extends JFrame implements ActionListener{
     b3.addActionListener(this);
     b3.setActionCommand("Hard");    
     JButton b4 = new JButton("Create");
-    b4.setBounds(10,10,10,10);
     b4.addActionListener(this);
     b4.setActionCommand("Create");
     t = new JTextField(15);
     t2 = new JTextField(15);
-    JLabel j2 = new JLabel("Difficulty:");
-    JLabel j = new JLabel("Seed:       ");
+    JLabel j2 = new JLabel("Difficulty:       ");
+    JLabel j = new JLabel("Board Number:");
 
     pane.add(j);
     pane.add(t);
