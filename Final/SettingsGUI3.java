@@ -59,10 +59,17 @@ public class SettingsGUI3 extends JFrame implements ActionListener{
 	                 c.setVisible(true);
 	                 this.setVisible(false);}
 	                            if(event.equals("Create")){
+					try{
+					    Integer.parseInt(t.getText());}
+					catch(NumberFormatException f){System.out.println("NumberFormatException: The text box Seed requires an integer.");}
+					if(t2.getText().equals("Easy") || t2.getText().equals("Medium") || t2.getText().equals("Hard")){
 					Board d = new Board(Integer.parseInt(t.getText()),t2.getText());
 	                            d.setVisible(true);
-	                            this.setVisible(false);
-	 }
+	                            this.setVisible(false);}
+					    else{System.out.println("The only available difficulties are Easy, Medium, and Hard");
+					    }
+				    }
+					    
      }
 
     public static void main(String [] args){
