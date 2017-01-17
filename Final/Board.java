@@ -5,17 +5,16 @@ import java.awt.event.*;
  import java.util.Calendar;
  
  public class Board extends JFrame implements ActionListener{
-     public int BoxNumber = 9;
-    public Box[]boxes = new Box[BoxNumber];
-     public JPanel panel = new JPanel (new GridLayout(3,3));
-     public JPanel Buttons = new JPanel (new GridLayout(3,2));
-     public JPanel Timer = new JPanel (new FlowLayout());
-     public JLabel l, Seed1, Difficulty1;
-     public JButton b, b2;
-     public Timer timer;
-     public Sudoku c;
-     public JTextField timeF, Seed, Difficulty;
-     private static final long serialVersionUID = 1L;
+     private int BoxNumber = 9;
+     private Box[]boxes = new Box[BoxNumber];
+     private JPanel panel = new JPanel (new GridLayout(3,3));
+     private JPanel Buttons = new JPanel (new GridLayout(3,2));
+     private JPanel Timer = new JPanel (new FlowLayout());
+     private JLabel l, Seed1, Difficulty1;
+     private JButton b, b2;
+     private Timer timer;
+     private Sudoku c;
+     private JTextField timeF, Seed, Difficulty;
       
      public Board(){
  	this.setLayout(new GridLayout(1,1));
@@ -72,8 +71,8 @@ import java.awt.event.*;
  	timer.start();
  	
          this.add(panel);
- 	this.add(Buttons);
- 	this.add(Timer);
+ 	 this.add(Buttons);
+ 	 this.add(Timer);
  	
  
      }
@@ -129,8 +128,8 @@ import java.awt.event.*;
  	timer.start();
  	
          this.add(panel);
- 	this.add(Buttons);
- 	this.add(Timer);
+ 	 this.add(Buttons);
+ 	 this.add(Timer);
  	
  
      }
@@ -191,8 +190,8 @@ import java.awt.event.*;
  	timer.start();
  	
          this.add(panel);
- 	this.add(Buttons);
- 	this.add(Timer);
+ 	 this.add(Buttons);
+ 	 this.add(Timer);
  	
  
      }
@@ -253,8 +252,8 @@ import java.awt.event.*;
  	timer.start();
  	
          this.add(panel);
- 	this.add(Buttons);
- 	this.add(Timer);
+ 	 this.add(Buttons);
+ 	 this.add(Timer);
  	
  
      }
