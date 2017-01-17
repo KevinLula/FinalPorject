@@ -138,11 +138,11 @@ public class Sudoku{
 	    puzzle[randgen.nextInt(9)][randgen.nextInt(9)] = 00;
 	}}
 	    if(diff.equals("Medium")){
-	    for (int i = 0; i < 45;i++){
+	    for (int i = 0; i < 40;i++){
 	    puzzle[randgen.nextInt(9)][randgen.nextInt(9)] = 00;
 	    }}
 	        if(diff.equals("Hard")){
-	        for (int i = 0; i < 65;i++){
+	        for (int i = 0; i < 50;i++){
 	        puzzle[randgen.nextInt(9)][randgen.nextInt(9)] = 00;
 	        }}		    
 	    
