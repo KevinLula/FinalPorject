@@ -1,5 +1,6 @@
 # FinalPorject
 The final project
+
 DESCRIPTION and WORKING FEATURES
 Our project creates sudoku puzzles for the user to interact with.Theres a whole variety of them, and the user can choose difficulty, and even the seed to try to solve the same puzzle again. There is also a timer that shows how long the user has been working on the the sudoku problem, and if the give up, they can either create a new puzzle aor check the solution. 
 UNRESOLVED BUGS
