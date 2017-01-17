@@ -4,8 +4,8 @@ import java.awt.event.*;
 import javax.swing.border.*;
 
 public class Box extends JPanel {
-    public int CellNumber = 9;
-    public JTextField[]cells = new JTextField[CellNumber];
+    private int CellNumber = 9;
+    private JTextField[]cells = new JTextField[CellNumber];
     
      
     public Box(int x, int y, Sudoku c){
